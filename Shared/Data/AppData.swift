@@ -7,81 +7,41 @@
 
 import Foundation
 
-class AppData: ObservableObject {
-	@Published var currentWord: [Character] = [" ", " ", " ", " ", " "]
-	@Published var allRows = [[String]]()
-
-
-	func createWord() -> [Character] {
-		return Array(Words.answers.randomElement()!)
-	}
-	
-//	@Published var rowOne: [Character] = ["a"]
-//	@Published var rowTwo: [Character] = ["a"]
-//	@Published var rowThree: [Character] = ["a"]
-//	@Published var rowFour: [Character] = ["a"]
-//	@Published var rowFive: [Character] = ["a"]
-//	@Published var rowSix: [Character] = ["a"]
-	
+extension ContentView {
+	@MainActor class AppData: ObservableObject {
+		@Published var currentWord: [Character] = [" ", " ", " ", " ", " "]
+		@Published var allRows = [[String]]()
+		@Published var guess = String()
 		
-//	func cellText(row: Int, round: Int, guess: String) -> String{
-//		///Calculates what the text should be in the corresponding cells
-//
-//		var text = " "
-//
-//		if round == row {
-//			text = guess
-//		} else if round < row {
-//			text = " "
-//		} else if round > row {
-//			text = writtenGuesses(row: row)
-//		}
-//
-//		func writtenGuesses(row: Int) -> String {
-//			///Retrives stored values based on current row
-//
-//			var text = String()
-//			switch row {
-//			case 0: text = rowZero
-//			case 1: text = rowOne
-//			case 2: text = rowTwo
-//			case 3: text = rowThree
-//			case 4: text = rowFour
-//			case 5: text = rowFive
-//			default:
-//				print("Error: round value above 6")
-//			}
-//			return text
-//		}
-//
-//		return text
-//	}
-//
-//	func writeGuess(round: Int, guess: String) {
-//		///Writes current guess to corresponding array based on current round
-//
-//		switch round {
-//		case 0: rowZero = guess
-//		case 1: rowOne = guess
-//		case 2: rowTwo = guess
-//		case 3: rowThree = guess
-//		case 4: rowFour = guess
-//		case 5: rowFive = guess
-//		default:
-//			print("Error: round value above 6")
-//		}
-//	}
-	
-	func setup() {
-		var rowZero = [" "," "," "," "," "]
-		var rowOne = [" "," "," "," "," "]
-		var rowTwo = [" "," "," "," "," "]
-		var rowThree = [" "," "," "," "," "]
-		var rowFour = [" "," "," "," "," "]
-		var rowFive = [" "," "," "," "," "]
 		
-		allRows.append(contentsOf: [rowZero, rowOne, rowTwo, rowThree, rowFour, rowFive])
+		func createWord() -> [Character] {
+			return Array(Words.answers.randomElement()!)
+		}
 		
-		print(allRows)
+		func writeGuess(round: Int, guess: String) {
+			///Writes current guess to corresponding array based on current round
+			
+			let guessArray: [String] = guess.map {String($0)}
+			if guessArray.count <= 5 {
+				allRows[round] = guessArray
+			}
+		}
+		
+		
+		func getCellText(row: Int, cell: Int) -> String {
+			let text = allRows
+			return text[safe: row]?[safe: cell] ?? " "
+		}
+		
+		func setup() {
+			let rowZero = ["1","2","3","4","5"]
+			let rowOne = ["6","7","8","9","10"]
+			let rowTwo = ["11","12","13","14","15"]
+			let rowThree = ["16","17","18","19","20"]
+			let rowFour = ["21","22","23","24","25"]
+			let rowFive = ["26","27","28","29","30"]
+			
+			allRows.append(contentsOf: [rowZero, rowOne, rowTwo, rowThree, rowFour, rowFive])
+		}
 	}
 }

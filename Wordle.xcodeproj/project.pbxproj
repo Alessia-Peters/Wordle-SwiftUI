@@ -17,6 +17,10 @@
 		B6165DB827CB2AE9000D2025 /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6165DB627CB2AE9000D2025 /* Words.swift */; };
 		B6165DBA27CB2B62000D2025 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6165DB927CB2B62000D2025 /* AppData.swift */; };
 		B6165DBB27CB2B62000D2025 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6165DB927CB2B62000D2025 /* AppData.swift */; };
+		B651BEC627CEDE2000C46A6F /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651BEC527CEDE2000C46A6F /* Extentions.swift */; };
+		B651BEC727CEDE2000C46A6F /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651BEC527CEDE2000C46A6F /* Extentions.swift */; };
+		B651BEC927CEDE9C00C46A6F /* TextLimiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651BEC827CEDE9C00C46A6F /* TextLimiter.swift */; };
+		B651BECA27CEDE9C00C46A6F /* TextLimiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651BEC827CEDE9C00C46A6F /* TextLimiter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,8 @@
 		B6017FB327CAF07F00BF6CC0 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		B6165DB627CB2AE9000D2025 /* Words.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Words.swift; sourceTree = "<group>"; };
 		B6165DB927CB2B62000D2025 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		B651BEC527CEDE2000C46A6F /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		B651BEC827CEDE9C00C46A6F /* TextLimiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLimiter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				B6165DB927CB2B62000D2025 /* AppData.swift */,
+				B651BEC527CEDE2000C46A6F /* Extentions.swift */,
+				B651BEC827CEDE9C00C46A6F /* TextLimiter.swift */,
 				B6165DB627CB2AE9000D2025 /* Words.swift */,
 			);
 			path = Data;
@@ -201,7 +209,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6165DB727CB2AE9000D2025 /* Words.swift in Sources */,
+				B651BEC927CEDE9C00C46A6F /* TextLimiter.swift in Sources */,
 				B6017FB627CAF07F00BF6CC0 /* ContentView.swift in Sources */,
+				B651BEC627CEDE2000C46A6F /* Extentions.swift in Sources */,
 				B6017FB427CAF07F00BF6CC0 /* WordleApp.swift in Sources */,
 				B6165DBA27CB2B62000D2025 /* AppData.swift in Sources */,
 			);
@@ -212,7 +222,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6165DB827CB2AE9000D2025 /* Words.swift in Sources */,
+				B651BECA27CEDE9C00C46A6F /* TextLimiter.swift in Sources */,
 				B6017FB727CAF07F00BF6CC0 /* ContentView.swift in Sources */,
+				B651BEC727CEDE2000C46A6F /* Extentions.swift in Sources */,
 				B6017FB527CAF07F00BF6CC0 /* WordleApp.swift in Sources */,
 				B6165DBB27CB2B62000D2025 /* AppData.swift in Sources */,
 			);
@@ -347,7 +359,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -377,7 +389,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
