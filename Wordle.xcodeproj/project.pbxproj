@@ -13,14 +13,14 @@
 		B6017FB727CAF07F00BF6CC0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6017FA527CAF07D00BF6CC0 /* ContentView.swift */; };
 		B6017FB827CAF07F00BF6CC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6017FA627CAF07F00BF6CC0 /* Assets.xcassets */; };
 		B6017FB927CAF07F00BF6CC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6017FA627CAF07F00BF6CC0 /* Assets.xcassets */; };
-		B6165DB727CB2AE9000D2025 /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6165DB627CB2AE9000D2025 /* Words.swift */; };
-		B6165DB827CB2AE9000D2025 /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6165DB627CB2AE9000D2025 /* Words.swift */; };
 		B6165DBA27CB2B62000D2025 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6165DB927CB2B62000D2025 /* AppData.swift */; };
 		B6165DBB27CB2B62000D2025 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6165DB927CB2B62000D2025 /* AppData.swift */; };
 		B651BEC627CEDE2000C46A6F /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651BEC527CEDE2000C46A6F /* Extentions.swift */; };
 		B651BEC727CEDE2000C46A6F /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651BEC527CEDE2000C46A6F /* Extentions.swift */; };
-		B651BEC927CEDE9C00C46A6F /* TextLimiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651BEC827CEDE9C00C46A6F /* TextLimiter.swift */; };
-		B651BECA27CEDE9C00C46A6F /* TextLimiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651BEC827CEDE9C00C46A6F /* TextLimiter.swift */; };
+		B67C62E827CF58C900787D70 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67C62E727CF58C900787D70 /* PopUpView.swift */; };
+		B67C62E927CF58C900787D70 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67C62E727CF58C900787D70 /* PopUpView.swift */; };
+		B683A81927CF4F3F00E2816B /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = B683A81827CF4F3F00E2816B /* Words.swift */; };
+		B683A81A27CF4F3F00E2816B /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = B683A81827CF4F3F00E2816B /* Words.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,10 +30,10 @@
 		B6017FAB27CAF07F00BF6CC0 /* Wordle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wordle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6017FB127CAF07F00BF6CC0 /* Wordle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wordle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6017FB327CAF07F00BF6CC0 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
-		B6165DB627CB2AE9000D2025 /* Words.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Words.swift; sourceTree = "<group>"; };
 		B6165DB927CB2B62000D2025 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		B651BEC527CEDE2000C46A6F /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
-		B651BEC827CEDE9C00C46A6F /* TextLimiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLimiter.swift; sourceTree = "<group>"; };
+		B67C62E727CF58C900787D70 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
+		B683A81827CF4F3F00E2816B /* Words.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Words.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +96,7 @@
 			children = (
 				B6165DB927CB2B62000D2025 /* AppData.swift */,
 				B651BEC527CEDE2000C46A6F /* Extentions.swift */,
-				B651BEC827CEDE9C00C46A6F /* TextLimiter.swift */,
-				B6165DB627CB2AE9000D2025 /* Words.swift */,
+				B683A81827CF4F3F00E2816B /* Words.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -106,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				B6017FA527CAF07D00BF6CC0 /* ContentView.swift */,
+				B67C62E727CF58C900787D70 /* PopUpView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -208,12 +208,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6165DB727CB2AE9000D2025 /* Words.swift in Sources */,
-				B651BEC927CEDE9C00C46A6F /* TextLimiter.swift in Sources */,
 				B6017FB627CAF07F00BF6CC0 /* ContentView.swift in Sources */,
 				B651BEC627CEDE2000C46A6F /* Extentions.swift in Sources */,
 				B6017FB427CAF07F00BF6CC0 /* WordleApp.swift in Sources */,
+				B67C62E827CF58C900787D70 /* PopUpView.swift in Sources */,
 				B6165DBA27CB2B62000D2025 /* AppData.swift in Sources */,
+				B683A81927CF4F3F00E2816B /* Words.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,12 +221,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6165DB827CB2AE9000D2025 /* Words.swift in Sources */,
-				B651BECA27CEDE9C00C46A6F /* TextLimiter.swift in Sources */,
 				B6017FB727CAF07F00BF6CC0 /* ContentView.swift in Sources */,
 				B651BEC727CEDE2000C46A6F /* Extentions.swift in Sources */,
 				B6017FB527CAF07F00BF6CC0 /* WordleApp.swift in Sources */,
+				B67C62E927CF58C900787D70 /* PopUpView.swift in Sources */,
 				B6165DBB27CB2B62000D2025 /* AppData.swift in Sources */,
+				B683A81A27CF4F3F00E2816B /* Words.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +357,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -387,6 +388,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
