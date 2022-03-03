@@ -11,6 +11,7 @@ struct PopUpView: View {
 	@ObservedObject var appData: ContentView.AppData
 	var text: String
 	var width: CGFloat
+	var color: Color
 	
 	var body: some View {
 		ZStack {
@@ -18,8 +19,7 @@ struct PopUpView: View {
 				.foregroundColor(.white)
 			RoundedRectangle(cornerRadius: 10)
 				.opacity(0.7)
-				.transition(.opacity)
-				.foregroundColor(.accentColor)
+				.foregroundColor(color)
 				.onAppear {
 					DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 						withAnimation {
@@ -40,11 +40,12 @@ struct PopUpView: View {
 		.offset(y: -127)
 		.frame(width: width, height: 70)
 		.zIndex(5)
+		.transition(.opacity)
 	}
 }
 
 struct PopUpView_Previews: PreviewProvider {
 	static var previews: some View {
-		PopUpView(appData: ContentView.AppData(limit: 5), text: "Not Enough Letters!", width: 275)
+		PopUpView(appData: ContentView.AppData(limit: 5), text: "Not Enough Letters!", width: 275, color: .accentColor)
 	}
 }

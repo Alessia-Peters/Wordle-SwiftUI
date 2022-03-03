@@ -17,10 +17,13 @@ struct ContentView: View {
 				TextField("", text: $appData.guess)
 					.opacity(0)
 					.disabled(appData.gameWon)
+					.disabled(appData.gameOver)
 					.focused($focus)
 					.disableAutocorrection(true)
 					.onSubmit {
-						appData.calculateGuess(guessString: appData.guess)
+						if appData.gameOver != true {
+						appData.calculateGuess()
+						}
 						focus = true
 					}
 #if os(iOS)
@@ -42,7 +45,7 @@ struct ContentView: View {
 										.foregroundColor(appData.getColor(row: row, cell: cell))
 										.frame(width: 55, height: 55)
 									Text(appData.getCellText(row: row, cell: cell))
-										.font(.system(size: 30))
+										.font(.system(size: 30, weight: .semibold))
 										.foregroundColor(appData.getTextColor(row: row))
 								}
 							}
@@ -55,7 +58,7 @@ struct ContentView: View {
 						focus.toggle()
 					} label: {
 						Image(systemName: "keyboard")
-							.font(.system(size: 40))
+							.font(.system(size: 50))
 					}
 					.padding(.horizontal)
 #endif
@@ -81,18 +84,27 @@ struct ContentView: View {
 				
 			}
 			.onAppear {
+				self.focus = appData.focus
 				appData.startGame()
-				focus = true
 			}
 			.onChange(of: appData.guess) { newValue in
 				print(newValue)
 				appData.writeGuess(round: appData.round, guess: newValue)
 			}
+			.onChange(of: focus) { newValue in
+				appData.focus = newValue
+			}
+			.onChange(of: appData.focus) { newValue in
+				focus = newValue
+			}
 			if appData.notEnoughLetters == true {
-				PopUpView(appData: appData, text: "Not Enough Letters!", width: 275)
+				PopUpView(appData: appData, text: "Not Enough Letters!", width: 275, color: .accentColor)
 			}
 			if appData.notValid == true {
-				PopUpView(appData: appData, text: "Thats Not a Valid Word!", width: 300)
+				PopUpView(appData: appData, text: "Thats Not a Valid Word!", width: 300, color: .accentColor)
+			}
+			if appData.gameOver == true {
+				PopUpView(appData: appData, text: "You lost!, the word was \(String(appData.currentWord))", width: 260, color: .red)
 			}
 		}
 	}

@@ -30,15 +30,21 @@ extension ContentView {
 		@Published var hasReachedLimit = false
 		@Published var currentWord: [Character] = [" ", " ", " ", " ", " "]
 		@Published var letterRows = [[String]]()
+		@Published var completedLetters = [[Character]]()
 		@Published var answerRows = [[Int]]()
 		@Published var notEnoughLetters = false
 		@Published var notValid = false
 		@Published var round = 0
 		@Published var gameWon = false
+		@Published var gameOver = false
+		@Published var focus = true
 		
 		func startGame() {
 			///Resets arrays for a new game
 			
+			withAnimation {
+				gameOver = false
+			}
 			answerRows = [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]
 			letterRows = [[" "," "," "," "," "],[" "," "," "," "," "],[" "," "," "," "," "],[" "," "," "," "," "],[" "," "," "," "," "],[" "," "," "," "," "]]
 			currentWord = createWord()
@@ -46,6 +52,7 @@ extension ContentView {
 			hasReachedLimit = false
 			round = 0
 			gameWon = false
+			focus = true
 			print(currentWord)
 		}
 		
@@ -59,7 +66,7 @@ extension ContentView {
 			///Writes current guess to corresponding array based on current round
 			
 			let guessArray: [String] = guess.map {String($0)}
-			if guessArray.count <= 5 {
+			if (guessArray.count <= 5) && (round <= 5){
 				letterRows[round] = guessArray
 			}
 		}
@@ -99,31 +106,38 @@ extension ContentView {
 			}
 		}
 		
-		func calculateGuess(guessString: String) {
-			///Calculates if the guess is correct, if it is the game is won, if it is not it goes onto the next line and marks the answerRows array
+		func assignColors() {
+			/// Calculates which color to assign letters according to the how correct it is
+			
+			for (guessIndex, guessElement) in guess.enumerated() {
+				for (answerIndex, answerElement) in currentWord.enumerated() {
+					if (guessIndex == answerIndex) && (guessElement == answerElement){
+						answerRows[round][guessIndex] = 1
+						completedLetters[round][guessIndex] = guessElement
+						///Right letter right place
+					}
+				}
+				if currentWord.contains(guessElement) && answerRows[round][guessIndex] == 0{
+					answerRows[round][guessIndex] = 2
+					///Right letter wrong place
+				} else if answerRows[round][guessIndex] == 0 {
+					answerRows[round][guessIndex] = 3
+					///Wrong answer
+				}
+			}
+		}
+		
+		func calculateGuess() {
+			///Calculates if the guess is correct, and send the popups if there isnt enugh letters or the word isnt valid
 			
 			print("guess submitted")
-			if guessString.count == 5 {
-				if guessString.capitalized == String(currentWord).capitalized {
+			if guess.count == 5{
+				if guess.capitalized == String(currentWord).capitalized {
 					print("game won")
 					gameWon = true
 					answerRows[round] = [1,1,1,1,1]
-				} else if (Words.guesses.contains(guessString)) || (Words.answers.contains(guessString)) {
-					for (guessIndex, guessElement) in guessString.enumerated() {
-						for (answerIndex, answerElement) in currentWord.enumerated() {
-							if (guessIndex == answerIndex) && (guessElement == answerElement){
-									answerRows[round][guessIndex] = 1
-									///Right letter right place
-							}
-						}
-						if currentWord.contains(guessElement) && answerRows[round][guessIndex] == 0{
-							answerRows[round][guessIndex] = 2
-							///Right letter wrong place
-						} else if answerRows[round][guessIndex] == 0 {
-							answerRows[round][guessIndex] = 3
-							///Wrong answer
-						}
-					}
+				} else if (Words.guesses.contains(guess)) || (Words.answers.contains(guess)) {
+					assignColors()
 					guess = ""
 					hasReachedLimit = false
 					round += 1
@@ -137,6 +151,11 @@ extension ContentView {
 				print("not enough letters")
 				withAnimation {
 					notEnoughLetters.toggle()
+				}
+			}
+			if (answerRows.index(after: round) == 7) {
+				withAnimation {
+					gameOver = true
 				}
 			}
 			print(answerRows)
